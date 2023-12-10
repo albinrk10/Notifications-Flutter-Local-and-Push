@@ -31,17 +31,19 @@ class _DetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyles = Theme.of(context).textTheme;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-      child: Column(
-        children: [
-          if (message.imageUrl != null) Image.network(message.imageUrl!),
-          const SizedBox(height: 30.0),
-          Text(message.title, style:textStyles.titleMedium),
-      
-          const Divider( ),
-          Text(message.data.toString()),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+        child: Column(
+          children: [
+            if (message.imageUrl != null) Image.network(message.imageUrl!),
+            const SizedBox(height: 30.0),
+            Text(message.title, style:textStyles.titleMedium),
+        
+            const Divider( ),
+            Text(message.data.toString()),
+          ],
+        ),
       ),
     );
   }
